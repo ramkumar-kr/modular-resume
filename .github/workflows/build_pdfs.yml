@@ -27,16 +27,9 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Install pdflatex
-        run:  sudo apt-get update \
-               && DEBIAN_FRONTEND=noninteractive sudo apt-get install -y \
-                  texlive-base \
-                  texlive-binaries \
-                  texlive-fonts-recommended \
-                  texlive-latex-base \
-                  texlive-latex-recommended \
-                  texlive-latex-extra \
-               && apt-get clean \
-               && rm -rf /var/lib/apt/lists/*
+        run: |
+          sudo apt-get update
+          DEBIAN_FRONTEND=noninteractive sudo apt-get install -y texlive-base texlive-binaries texlive-fonts-recommended texlive-latex-base texlive-latex-recommended texlive-latex-extra
 
       # Runs a set of commands using the runners shell
       - name: Build all PDF versions
