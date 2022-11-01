@@ -1,0 +1,89 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage{import}
+\usepackage{setspace,lipsum}
+
+% Include from master
+\input{master/utils}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\hypersetup{pdfborder = 0 0 0}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% & \multicolumn{1}{l}{\telephonenumber} \\ & \multicolumn{1}{l}{\myemail} \\ & \multicolumn{1}{l}{\linkedin}
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{c}
+  \import{master/header/}{name}
+\end{tabular*}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}} c@{\extracolsep{\fill}} r}
+  \import{master/header/}{email1} &
+  \import{master/header/}{phone} &
+  \import{master/header/}{linkedin}
+\end{tabular*}
+
+%--------EDUCATION-------
+\section{EDUCATION}
+    \resumeSubHeadingListStart
+    \import{master/education/univ1}{degree1}
+    \resumeSubHeadingListEnd
+
+%--------SKILLS----------
+\section{SKILLS}
+\resumeSubHeadingListStart
+    \resumeSubItem{Skill group (Example - Programming languages)}{
+        \import{master/skills/}{skill1}\hspace{-2pt},
+        \import{master/skills/}{skill2}\hspace{-2pt},
+        \import{master/skills/}{skill3}\hspace{-2pt}
+    }
+\resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------------
+\section{EXPERIENCE}
+  \resumeSubHeadingListStart
+
+    \import{master/experience/}{company1}
+    \vspace{-3pt}
+  \resumeSubHeadingListEnd
+
+% Want to add a custom section, just uncomment and update the imports!
+% -------- CUSTOM SECTION --------
+% \section{CUSTOM SECTION}
+%   \resumeSubHeadingListStart
+%   \import{master/custom/}{c1}\vspace{-3pt}
+%   \import{master/custom/}{c2}\vspace{-3pt}
+%   \resumeSubHeadingListEnd
+
+% -------- AWARDS -------------
+\section{AWARDS}
+\resumeSubHeadingListStart
+  \import{master/awards/}{some_prize}\vspace{-3pt}
+\resumeSubHeadingListEnd
+\end{document}
